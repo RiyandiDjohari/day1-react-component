@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import Card from './Card';
-import { data } from '../constants';
+import { data as initialItems } from '../constants';
 
 const ListCard = () => {
-  const [items, setItems] = useState(data);
+  const [items, setItems] = useState(initialItems);
 
   const handleAddItem = () => {
-    setItems([
+    setItems(items => [
       ...items,
       {
         id: items.length + 1,
@@ -25,7 +25,7 @@ const ListCard = () => {
         {items.map((item) => (
           <Card key={item.id} title={item.title} subTitle={item.subTitle} />
         ))}
-        <button onClick={() => handleAddItem()}>Tambah Item</button>
+        <button onClick={handleAddItem}>Tambah Item</button>
       </main>
     </>
   );
