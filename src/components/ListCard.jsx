@@ -3,15 +3,15 @@ import Card from './Card';
 import { data } from '../constants';
 
 const ListCard = () => {
-  const [tasks, setTasks] = useState(data);
+  const [items, setItems] = useState(data);
 
-  const handleAddTask = () => {
-    setTasks([
-      ...tasks,
+  const handleAddItem = () => {
+    setItems([
+      ...items,
       {
-        id: tasks.length + 1,
-        title: `${tasks.length + 1}th Card's h2`,
-        subTitle: `${tasks.length + 1}th Card's h3`,
+        id: items.length + 1,
+        title: `${items.length + 1}th Card's h2`,
+        subTitle: `${items.length + 1}th Card's h3`,
       },
     ]);
   };
@@ -22,10 +22,10 @@ const ListCard = () => {
         <h2 style={{ marginBottom: '1rem' }}>Task: Add three card elements</h2>
       </header>
       <main>
-        {tasks.map((item) => (
+        {items.map((item) => (
           <Card key={item.id} title={item.title} subTitle={item.subTitle} />
         ))}
-        <button onClick={() => handleAddTask()}>Add New Card</button>
+        <button onClick={() => handleAddItem()}>Tambah Item</button>
       </main>
     </>
   );
